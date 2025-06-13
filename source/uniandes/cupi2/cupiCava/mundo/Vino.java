@@ -13,7 +13,15 @@ package uniandes.cupi2.cupiCava.mundo;
 /**
  * Clase que representa un vino almacenado en la Cupi-Cava.<br>
  * <b>inv: </b> <br>
- * TODO Parte1 PuntoA: Declare la invariante de la clase.
+ * TODO Parte1 PuntoA: Declare la invariante de la clase.</br>
+ * <br>El nombre del vino no debe ser nulo ni estar vacío.</br>
+ * <br>La presentación del vino no debe ser nula ni estar vacía.</br>
+ * <br>El año de elaboración no debe ser nulo ni estar vacío.</br>
+ * <br>El contenido de azúcar no debe ser nulo ni estar vacío.</br>
+ * <br>El tipo de vino no debe ser nulo ni estar vacío.</br>
+ * <br>El color del vino no debe ser nulo ni estar vacío.</br>
+ * <br>El lugar de origen no debe ser nulo ni estar vacío.</br>
+ * <br>La imagen representativa del vino no debe ser nula ni estar vacía.</br>
  */
 public class Vino
 {
@@ -143,6 +151,8 @@ public class Vino
         color = pColor;
         lugarOrigen = pLugarOrigen;
         imagen = pImagen;
+        
+        verificarInvariante();
 
     }
 
@@ -320,4 +330,28 @@ public class Vino
     // -----------------------------------------------------------------
 
     // TODO Parte1 PuntoB: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
+    
+    public void verificarInvariante()
+    {
+    	assert nombre != null : "El nombre del vino no puede ser nulo";
+    	assert !nombre.isEmpty() : "El nombre no puede estar vacío";
+    	
+    	assert presentacion != null : "La presentación no puede ser nula";
+    	assert !presentacion.isEmpty() : "La presentación no puede estar vacía";
+    	
+    	assert anhoElaboracion >= 1000 && anhoElaboracion <= 9999 : "El año de elaboración debe ser un formato de fecha válido (2004)";
+    	
+    	assert contenidoAzucar >= 0 : "El contenido de azúcar debe ser mayor o igual a 0";
+    	
+    	assert tipo != null : "El tipo de vino no puede ser nulo";
+    	assert !tipo.isEmpty() : "El tipo no puede estar vacío";
+    	
+    	
+    	assert color != null : "El color no puede ser nulo";
+    	assert !color.isEmpty() : "El color no puede estar vacío";
+    	
+    	assert lugarOrigen != null : "El lugar de origen no puede ser nulo";
+    	assert !lugarOrigen.isEmpty() : "El lugar de origen puede estar vacío";
+    }
+    	
 }
