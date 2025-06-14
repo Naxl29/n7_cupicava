@@ -331,7 +331,7 @@ public class Vino
 
     // TODO Parte1 PuntoB: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
     
-    public void verificarInvariante()
+    private void verificarInvariante()
     {
     	assert nombre != null : "El nombre del vino no puede ser nulo";
     	assert !nombre.isEmpty() : "El nombre no puede estar vacío";

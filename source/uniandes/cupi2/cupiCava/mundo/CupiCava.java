@@ -15,7 +15,8 @@ import java.util.ArrayList;
 /**
  * Clase que representa la Cupi-Cava. <br>
  * <b>inv: </b> <br>
- * TODO Parte1 PuntoC: Declare la invariante de la clase.
+ * TODO Parte1 PuntoC: Declare la invariante de la clase. </br>
+ * <br>La lista de vinos no debe ser nula. </br>
  */
 public class CupiCava
 {
@@ -39,6 +40,8 @@ public class CupiCava
     public CupiCava( )
     {
         vinos = new ArrayList<Vino>( );
+        
+        verificarInvariante();
     }
 
     // -------------------------------------------------------------
@@ -188,7 +191,14 @@ public class CupiCava
     // -----------------------------------------------------------------
 
     // TODO Parte1 PuntoD: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
-
+    private void verificarInvariante()
+    {
+    	assert vinos != null : "La lista de vinos no puede ser nula";
+    	
+    	for (Vino vino : vinos) {
+    		assert vino != null : "Uno de los vinos de la lista es nulo";
+    	}
+    }
     // -----------------------------------------------------------------
     // Puntos de Extensión
     // -----------------------------------------------------------------
