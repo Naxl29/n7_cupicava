@@ -241,7 +241,22 @@ public class Vino
      */
     public int compararPorNombre( Vino pVino )
     {
-    	 // TODO Parte2 PuntoA: Implemente el método según la documentación dada.
+    	// TODO Parte2 PuntoA: Implemente el método según la documentación dada.
+
+    	assert pVino != null : "El vino a comparar no puede ser nulo.";
+    	
+        String nombreActual = this.nombre;
+        String nombreOtroVino = pVino.darNombre(); 
+
+        int resultadoComparacion = nombreActual.compareToIgnoreCase(nombreOtroVino);
+        
+        if (resultadoComparacion == 0) {
+            return 0; 
+        } else if (resultadoComparacion < 0) {
+            return -1;
+        } else {
+            return 1;
+        }
     }
 
     /**
@@ -254,8 +269,23 @@ public class Vino
     public int compararPorPresentacion( Vino pVino )
     {
    	 // TODO Parte2 PuntoB: Implemente el método según la documentación dada.
-   }
 
+        assert pVino != null : "El vino a comparar no puede ser nulo.";
+
+        String presentacionActual = this.presentacion;
+        String presentacionOtroVino = pVino.darPresentacion();
+
+        int resultadoComparacion = presentacionActual.compareToIgnoreCase(presentacionOtroVino);
+
+        if (resultadoComparacion == 0) {
+            return 0; 
+        } else if (resultadoComparacion < 0) {
+            return -1;
+        } else { 
+            return 1;
+        }
+    }
+    
     /**
      * Compara dos vinos según el año de elaboración. <br>
      * @param pVino Vino contra el cual se está comparando. pVino !=null.
@@ -266,7 +296,20 @@ public class Vino
     public int compararPorAnhoElaboracion( Vino pVino )
     {
    	 // TODO Parte2 PuntoC: Implemente el método según la documentación dada.
-   }
+    	
+        assert pVino != null : "El vino a comparar no puede ser nulo.";
+
+        int anhoActual = this.anhoElaboracion;
+        int anhoOtroVino = pVino.darAnhoElaboracion();
+        
+        if (anhoActual == anhoOtroVino) {
+            return 0; 
+        } else if (anhoOtroVino > anhoActual) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
 
     /**
      * Compara dos vinos según el contenido en azúcar. <br>
@@ -278,7 +321,20 @@ public class Vino
     public int compararPorContenidoAzucar( Vino pVino )
     {
    	 // TODO Parte2 PuntoD: Implemente el método según la documentación dada.
-   }
+    	
+    	assert pVino != null : "El vino a comparar no puede ser nulo.";
+
+        double azucarActual = this.contenidoAzucar;
+        double azucarOtroVino = pVino.darContenidoAzucar();
+
+        if (azucarActual == azucarOtroVino) {
+            return 0;
+        } else if (azucarOtroVino > azucarActual) {
+            return -1;
+        } else { 
+            return 1;
+        }
+    }
 
     /**
      * Compara dos vinos según el tipo de vino. <br>
@@ -290,7 +346,22 @@ public class Vino
     public int compararPorTipo( Vino pVino )
     {
    	 // TODO Parte2 PuntoE: Implemente el método según la documentación dada.
-   }
+    	
+    	assert pVino != null : "El vino a comparar no puede ser nulo.";
+
+	    String tipoActual = this.tipo;
+	    String tipoOtroVino = pVino.darTipo();
+
+	    int resultadoComparacion = tipoActual.compareToIgnoreCase(tipoOtroVino);
+
+	    if (resultadoComparacion == 0) {
+	        return 0; 
+	    } else if (resultadoComparacion < 0) {
+	        return -1;
+	    } else { 
+	        return 1;
+	    }
+    }
 
     /**
      * Compara dos vinos según el color. <br>
@@ -302,6 +373,22 @@ public class Vino
     public int compararPorColor( Vino pVino )
     {
    	 // TODO Parte2 PuntoF: Implemente el método según la documentación dada.
+    	
+    	assert pVino != null : "El vino a comparar no puede ser nulo";
+    	
+    	String colorActual = this.color;
+    	String colorOtroVino = pVino.darColor();
+    	
+    	int resultadoComparacion = colorActual.compareToIgnoreCase(colorOtroVino);
+    	
+    	if (resultadoComparacion == 0) {
+    		return 0;
+    	} else if (resultadoComparacion < 0) {
+    		return -1;
+    	} else {
+    		return 1;
+    	}
+    	
     }
 
     /**
@@ -314,7 +401,22 @@ public class Vino
     public int compararPorLugarOrigen( Vino pVino )
     {
    	 // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
-   }
+    	
+    	assert pVino != null : "El vino a compara no puede ser nulo";
+    	
+    	String lugarActual = this.lugarOrigen;
+    	String lugarOtroVino = pVino.darLugarOrigen();
+    	
+    	int resultadoComparacion = lugarActual.compareToIgnoreCase(lugarOtroVino);
+    	
+    	if (resultadoComparacion == 0) {
+    		return 0;
+    	} else if (resultadoComparacion < 0) {
+    		return -1;
+    	} else {
+    		return 1;
+    	}
+    }
 
     /**
      * Retorna una cadena con el nombre del vino.
@@ -351,7 +453,7 @@ public class Vino
     	assert !color.isEmpty() : "El color no puede estar vacío";
     	
     	assert lugarOrigen != null : "El lugar de origen no puede ser nulo";
-    	assert !lugarOrigen.isEmpty() : "El lugar de origen puede estar vacío";
+    	assert !lugarOrigen.isEmpty() : "El lugar de origen no puede estar vacío";
     }
     	
 }
