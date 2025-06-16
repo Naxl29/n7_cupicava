@@ -14,8 +14,8 @@ import java.util.ArrayList;
 
 /**
  * Clase que representa la Cupi-Cava. <br>
- * <b>inv: </b> <br>
- * TODO Parte1 PuntoC: Declare la invariante de la clase.
+ * <b>inv: </b>
+ * <br>La lista de vinos no debe ser nula. </br>
  */
 public class CupiCava
 {
@@ -39,6 +39,8 @@ public class CupiCava
     public CupiCava( )
     {
         vinos = new ArrayList<Vino>( );
+        
+        verificarInvariante();
     }
 
     // -------------------------------------------------------------
@@ -85,8 +87,28 @@ public class CupiCava
      * @return Vino con el nombre dado, null en caso de no encontrarlo.
      */
     public Vino buscarBinarioPorNombre( String pNombre )
-    {
-   	 // TODO Parte2 PuntoH: Implemente el método según la documentación dada.
+    {	
+        assert pNombre != null && !pNombre.isEmpty() : "El nombre a buscar no puede ser nulo o vacío.";
+
+        int inicio = 0;
+        int fin = vinos.size( ) - 1;
+
+        while( inicio <= fin )
+        {
+            int medio = (fin + inicio) / 2;
+            Vino actual = vinos.get( medio );
+            int comparacion = actual.darNombre().compareToIgnoreCase(pNombre);
+
+            if( comparacion == 0 ) {
+                return actual;      
+            } else if( comparacion < 0 ) {
+                inicio = medio + 1; 
+            } else {
+                fin = medio - 1;  
+            }
+        }
+        
+        return null;
     }
 
     /**
@@ -97,7 +119,21 @@ public class CupiCava
      */
     public Vino buscarVinoMasDulce( )
     {
-   	 // TODO Parte2 PuntoI: Implemente el método según la documentación dada.
+    	verificarInvariante();
+    	if (vinos.isEmpty()) {
+    		return null;
+    	}
+    	
+    	Vino vinoMasDulce = vinos.get(0);
+    	
+    	for (int i = 1; i < vinos.size(); i++) {
+    		Vino vinoActual = vinos.get(i);
+    		if (vinoMasDulce.compararPorContenidoAzucar(vinoActual) < 0) {
+    			vinoMasDulce = vinoActual;
+    		}
+    	}
+    	
+    	return vinoMasDulce;
     }
 
     /**
@@ -108,8 +144,23 @@ public class CupiCava
      */
     public Vino buscarVinoMasSeco( )
     {
-   	 // TODO Parte2 PuntoJ: Implemente el método según la documentación dada.
-   }
+    	verificarInvariante();
+    	
+    	if (vinos.isEmpty()) {
+    		return null;
+    	}
+    	
+    	Vino vinoMasSeco = vinos.get(0);
+    	
+    	for (int i = 1; i < vinos.size(); i++) {
+    		Vino vinoActual = vinos.get(i);
+    		if (vinoMasSeco.compararPorContenidoAzucar(vinoActual) < 0) {
+    			vinoMasSeco = vinoActual;
+    		}
+    	}
+    	
+    	return vinoMasSeco;
+    }
 
     /**
      * Busca los vinos del tipo dado por parámetro. <br>
@@ -120,7 +171,19 @@ public class CupiCava
      */
     public ArrayList<Vino> buscarVinosDeTipo( String pTipo )
     {
-   	 // TODO Parte2 PuntoK: Implemente el método según la documentación dada.
+    	assert pTipo != null && !pTipo.isEmpty() : "El tipo a buscar no puede ser nulo o vacío.";
+    	
+    	verificarInvariante();
+    	
+    	ArrayList<Vino> encontrados = new ArrayList<>();
+    	
+    	for (Vino vino : vinos) {
+    		if (vino.darTipo().equalsIgnoreCase(pTipo)) {
+    			encontrados.add(vino);
+    		}
+    	}
+    	
+    	return encontrados;
    }
 
     /**
@@ -160,8 +223,19 @@ public class CupiCava
      */
     public void ordenarVinosPorNombre( )
     {
-   	 // TODO Parte2 PuntoL: Implemente el método según la documentación dada.
-   }
+    	verificarInvariante();
+    	
+    	for (int i = 0; i < vinos.size(); i++) {
+    		for (int j = 0; j < vinos.size() - 1 - i; j++) {
+    			Vino vino1 = vinos.get(j);
+    			Vino vino2 = vinos.get(j + 1);
+    			if (vino1.darNombre().compareToIgnoreCase(vino2.darNombre()) > 0) {
+    				vinos.set(j, vino2);
+    				vinos.set(j + 1, vino1);
+    			}
+    		}
+    	}
+    }
 
     /**
      * Ordena descendentemente la lista de vinos por año de elaboración usando el algoritmo de selección. <br>
@@ -187,8 +261,14 @@ public class CupiCava
     // Invariante
     // -----------------------------------------------------------------
 
-    // TODO Parte1 PuntoD: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
-
+    private void verificarInvariante()
+    {
+    	assert vinos != null : "La lista de vinos no puede ser nula";
+    	
+    	for (Vino vino : vinos) {
+    		assert vino != null : "Uno de los vinos de la lista es nulo";
+    	}
+    }
     // -----------------------------------------------------------------
     // Puntos de Extensión
     // -----------------------------------------------------------------
