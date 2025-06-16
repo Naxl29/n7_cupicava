@@ -261,7 +261,6 @@ public class CupiCava
     // Invariante
     // -----------------------------------------------------------------
 
-    // TODO Parte1 PuntoD: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
     private void verificarInvariante()
     {
     	assert vinos != null : "La lista de vinos no puede ser nula";
