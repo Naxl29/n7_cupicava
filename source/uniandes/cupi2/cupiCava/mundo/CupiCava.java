@@ -244,7 +244,20 @@ public class CupiCava
      */
     public void ordenarVinosPorAnhoElaboracion( )
     {
-   	 // TODO Parte2 PuntoM: Implemente el método según la documentación dada.
+    	verificarInvariante();
+    	
+    	for (int i = 0; i < vinos.size() - 1; i++) {
+	        int indiceMaximo = i;
+	        for (int j = i + 1; j < vinos.size(); j++) {
+	            if (vinos.get(j).darAnhoElaboracion() > vinos.get(indiceMaximo).darAnhoElaboracion()) {
+	                indiceMaximo = j;
+	            }
+	        }
+
+	        Vino temporal = vinos.get(i);
+	        vinos.set(i, vinos.get(indiceMaximo));
+	        vinos.set(indiceMaximo, temporal);
+	    }
    }
 
     /**
@@ -254,7 +267,20 @@ public class CupiCava
      */
     public void ordenarVinosPorLugarOrigen( )
     {
-   	 // TODO Parte2 PuntoN: Implemente el método según la documentación dada.
+    	verificarInvariante();
+    	
+    	for (int i = 1; i < vinos.size(); i++) {
+    		
+	        Vino vinoActual = vinos.get(i);
+	        int j = i - 1;
+	
+	        while (j >= 0 && vinos.get(j).darLugarOrigen().compareToIgnoreCase(vinoActual.darLugarOrigen()) > 0) {
+	            vinos.set(j + 1, vinos.get(j));
+	            j--;
+	        }
+	
+	        vinos.set(j + 1, vinoActual);
+	    }
    }
 
     // -----------------------------------------------------------------

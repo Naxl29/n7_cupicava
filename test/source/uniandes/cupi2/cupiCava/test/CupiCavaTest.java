@@ -206,10 +206,15 @@ public class CupiCavaTest
     public void testOrdenarVinosPorNombre( )
     {
         setupEscenario3( );
-
         
-       	 // TODO Parte2 PuntoQ: Implemente el método para que cumpla los casos de prueba
-       
+        cupiCava.ordenarVinosPorNombre();
+        ArrayList<Vino> vinosOrdenados = cupiCava.darVinos();
+
+        // Verificar que la lista esté ordenada por nombre
+        for (int i = 0; i < vinosOrdenados.size() - 1; i++) {
+            assertTrue("Los vinos no están ordenados por nombre correctamente en la posición " + i,
+                       vinosOrdenados.get(i).compararPorNombre(vinosOrdenados.get(i + 1)) <= 0);
+        }
     }
 
     /**
@@ -226,7 +231,14 @@ public class CupiCavaTest
     {
         setupEscenario3( );
 
-        // TODO Parte2 PuntoR: Implemente el método para que cumpla los casos de prueba
+        cupiCava.ordenarVinosPorAnhoElaboracion();
+        ArrayList<Vino> vinosOrdenados = cupiCava.darVinos();
+
+        // Verificar que la lista esté ordenada por año de elaboración
+        for (int i = 0; i < vinosOrdenados.size() - 1; i++) {
+            assertTrue("Los vinos no están ordenados por año de elaboración correctamente en la posición " + i,
+                       vinosOrdenados.get(i).compararPorAnhoElaboracion(vinosOrdenados.get(i + 1)) <= 0);
+        }
     }
 
     /**
@@ -243,7 +255,14 @@ public class CupiCavaTest
     {
         setupEscenario3( );
 
-        // TODO Parte2 PuntoS: Implemente el método para que cumpla los casos de prueba
+        cupiCava.ordenarVinosPorLugarOrigen();
+        ArrayList<Vino> vinosOrdenados = cupiCava.darVinos();
+
+        // Verificar que la lista esté ordenada por lugar de origen
+        for (int i = 0; i < vinosOrdenados.size() - 1; i++) {
+            assertTrue("Los vinos no están ordenados por lugar de origen correctamente en la posición " + i,
+                       vinosOrdenados.get(i).compararPorLugarOrigen(vinosOrdenados.get(i + 1)) <= 0);
+        }
     }
 
     /**

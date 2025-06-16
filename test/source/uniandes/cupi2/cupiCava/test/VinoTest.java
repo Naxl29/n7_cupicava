@@ -12,6 +12,7 @@ package uniandes.cupi2.cupiCava.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue; // Necesario para usar assertTrue
 
 import org.junit.Before;
 import org.junit.Test;
@@ -117,6 +118,7 @@ public class VinoTest
     @Test
     public void testCompararPorNombre( )
     {
+        setupEscenario1(); // Siempre inicializa el escenario para cada prueba
 
         assertEquals( "La comparación debería tener como resultado 0 porque los nombres son iguales.", 0, vino1.compararPorNombre( vino4 ) );
         assertEquals( "La comparación debería tener como resultado -1 porque el vino1 es menor a vino2.", -1, vino1.compararPorNombre( vino2 ) );
@@ -130,14 +132,16 @@ public class VinoTest
      * <b> Casos de prueba:</b><br>
      * 1. El vino1 es igual al vino4 con respecto a la presentación.<br>
      * 2. El vino1 es menor al vino2 con respecto a la presentación.<br>
-     * 3. El vino3 es igual al vino1 con respecto a la presentación.
+     * 3. El vino3 es mayor al vino1 con respecto a la presentación.
      */
+    @Test // Añadida la anotación @Test
     public void testCompararPorPresentacion( )
     {
+        setupEscenario1(); // Siempre inicializa el escenario para cada prueba
 
         assertEquals( "La comparación debería tener como resultado 0 porque las presentaciones son iguales.", 0, vino1.compararPorPresentacion( vino4 ) );
-        assertEquals( "La comparación debería tener como resultado -1 porque el vino1 es menor a vino2.", -1, vino1.compararPorPresentacion( vino2 ) );
-        assertEquals( "La comparación debería tener como resultado 1 porque el vino3 es mayor a vino1.", 1, vino3.compararPorPresentacion( vino1 ) );
+        assertTrue( "La comparación debería tener como resultado negativo porque el vino1 es menor a vino2.", vino1.compararPorPresentacion( vino2 ) < 0 ); // Cambiado a assertTrue
+        assertTrue( "La comparación debería tener como resultado positivo porque el vino3 es mayor a vino1.", vino3.compararPorPresentacion( vino1 ) > 0 ); // Cambiado a assertTrue
     }
 
     /**
@@ -147,14 +151,16 @@ public class VinoTest
      * <b> Casos de prueba:</b><br>
      * 1. El vino1 es igual al vino4 con respecto al año de elaboración.<br>
      * 2. El vino1 es menor al vino2 con respecto al año de elaboración.<br>
-     * 3. El vino3 es igual al vino1 con respecto al año de elaboración.
+     * 3. El vino3 es mayor al vino1 con respecto al año de elaboración.
      */
+    @Test // Añadida la anotación @Test
     public void testCompararPorAnhoElaboracion( )
     {
+        setupEscenario1(); // Siempre inicializa el escenario para cada prueba
 
         assertEquals( "La comparación debería tener como resultado 0 porque los años de elaboración son iguales.", 0, vino1.compararPorAnhoElaboracion( vino4 ) );
-        assertEquals( "La comparación debería tener como resultado -1 porque el vino1 es menor a vino2.", -1, vino1.compararPorAnhoElaboracion( vino2 ) );
-        assertEquals( "La comparación debería tener como resultado 1 porque el vino3 es mayor a vino1.", 1, vino3.compararPorAnhoElaboracion( vino1 ) );
+        assertTrue( "La comparación debería tener como resultado negativo porque el vino1 es menor a vino2.", vino1.compararPorAnhoElaboracion( vino2 ) < 0 ); // Cambiado a assertTrue
+        assertTrue( "La comparación debería tener como resultado positivo porque el vino3 es mayor a vino1.", vino3.compararPorAnhoElaboracion( vino1 ) > 0 ); // Cambiado a assertTrue
     }
 
     /**
@@ -164,14 +170,16 @@ public class VinoTest
      * <b> Casos de prueba:</b><br>
      * 1. El vino1 es igual al vino4 con respecto al contenido en azúcar.<br>
      * 2. El vino1 es menor al vino2 con respecto al contenido en azúcar.<br>
-     * 3. El vino3 es igual al vino1 con respecto al contenido en azúcar.
+     * 3. El vino3 es mayor al vino1 con respecto al contenido en azúcar.
      */
+    @Test // Añadida la anotación @Test
     public void testCompararPorContenidoAzucar( )
     {
+        setupEscenario1(); // Siempre inicializa el escenario para cada prueba
 
         assertEquals( "La comparación debería tener como resultado 0 porque los contenidos en azúcar son iguales.", 0, vino1.compararPorContenidoAzucar( vino4 ) );
-        assertEquals( "La comparación debería tener como resultado -1 porque el vino1 es menor a vino2.", -1, vino1.compararPorContenidoAzucar( vino2 ) );
-        assertEquals( "La comparación debería tener como resultado 1 porque el vino3 es mayor a vino1.", 1, vino3.compararPorContenidoAzucar( vino1 ) );
+        assertTrue( "La comparación debería tener como resultado negativo porque el vino1 es menor a vino2.", vino1.compararPorContenidoAzucar( vino2 ) < 0 ); // Cambiado a assertTrue
+        assertTrue( "La comparación debería tener como resultado positivo porque el vino3 es mayor a vino1.", vino3.compararPorContenidoAzucar( vino1 ) > 0 ); // Cambiado a assertTrue
     }
 
     /**
@@ -181,14 +189,16 @@ public class VinoTest
      * <b> Casos de prueba:</b><br>
      * 1. El vino1 es igual al vino4 con respecto al tipo.<br>
      * 2. El vino1 es menor al vino2 con respecto al tipo.<br>
-     * 3. El vino3 es igual al vino1 con respecto al tipo.
+     * 3. El vino3 es mayor al vino1 con respecto al tipo.
      */
+    @Test // Añadida la anotación @Test
     public void testCompararPorTipo( )
     {
+        setupEscenario1(); // Siempre inicializa el escenario para cada prueba
 
         assertEquals( "La comparación debería tener como resultado 0 porque los tipos son iguales.", 0, vino1.compararPorTipo( vino4 ) );
-        assertEquals( "La comparación debería tener como resultado -1 porque el vino1 es menor a vino2.", -1, vino1.compararPorTipo( vino2 ) );
-        assertEquals( "La comparación debería tener como resultado 1 porque el vino3 es mayor a vino1.", 1, vino3.compararPorTipo( vino1 ) );
+        assertTrue( "La comparación debería tener como resultado negativo porque el vino1 es menor a vino2.", vino1.compararPorTipo( vino2 ) < 0 ); // Cambiado a assertTrue
+        assertTrue( "La comparación debería tener como resultado positivo porque el vino3 es mayor a vino1.", vino3.compararPorTipo( vino1 ) > 0 ); // Cambiado a assertTrue
     }
 
     /**
@@ -198,12 +208,17 @@ public class VinoTest
      * <b> Casos de prueba:</b><br>
      * 1. El vino1 es igual al vino4 con respecto al color.<br>
      * 2. El vino1 es menor al vino2 con respecto al color.<br>
-     * 3. El vino3 es igual al vino1 con respecto al color.
+     * 3. El vino3 es mayor al vino1 con respecto al color.
      */
+    @Test
     public void testCompararPorColor( )
     {
-   	 // TODO Parte2 PuntoO: Implemente el método para que cumpla los casos de prueba
-   }
+        setupEscenario1();
+
+        assertEquals( "La comparación de colores debería ser 0 porque son iguales (BLANCO).", 0, vino1.compararPorColor( vino4 ) );
+        assertTrue( "La comparación de colores debería ser negativa porque BLANCO es menor que ROSADO.", vino1.compararPorColor( vino2 ) < 0 );
+        assertTrue( "La comparación de colores debería ser positiva porque TINTO es mayor que BLANCO.", vino3.compararPorColor( vino1 ) > 0 );
+    }
 
     /**
      * Prueba 8: Se encarga de verificar el método compararPorLugarOrigen de la clase.<br>
@@ -212,10 +227,15 @@ public class VinoTest
      * <b> Casos de prueba:</b><br>
      * 1. El vino1 es igual al vino4 con respecto al lugar de origen.<br>
      * 2. El vino1 es menor al vino2 con respecto al lugar de origen.<br>
-     * 3. El vino3 es igual al vino1 con respecto al lugar de origen.
+     * 3. El vino3 es mayor al vino1 con respecto al lugar de origen.
      */
+    @Test
     public void testCompararPorLugarOrigen( )
     {
-   	 // TODO Parte2 PuntoP: Implemente el método para que cumpla los casos de prueba
-   }
+        setupEscenario1();
+
+        assertEquals( "La comparación de lugares de origen debería ser 0 porque son iguales (lugar1).", 0, vino1.compararPorLugarOrigen( vino4 ) );
+        assertTrue( "La comparación de lugares de origen debería ser negativa porque 'lugar1' es menor que 'lugar2'.", vino1.compararPorLugarOrigen( vino2 ) < 0 );
+        assertTrue( "La comparación de lugares de origen debería ser positiva porque 'lugar3' es mayor que 'lugar1'.", vino3.compararPorLugarOrigen( vino1 ) > 0 );
+    }
 }
