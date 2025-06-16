@@ -12,8 +12,7 @@ package uniandes.cupi2.cupiCava.mundo;
 
 /**
  * Clase que representa un vino almacenado en la Cupi-Cava.<br>
- * <b>inv: </b> <br>
- * TODO Parte1 PuntoA: Declare la invariante de la clase.</br>
+ * <b>inv: </b>
  * <br>El nombre del vino no debe ser nulo ni estar vacío.</br>
  * <br>La presentación del vino no debe ser nula ni estar vacía.</br>
  * <br>El año de elaboración no debe ser nulo ni estar vacío.</br>
@@ -241,8 +240,6 @@ public class Vino
      */
     public int compararPorNombre( Vino pVino )
     {
-    	// TODO Parte2 PuntoA: Implemente el método según la documentación dada.
-
     	assert pVino != null : "El vino a comparar no puede ser nulo.";
     	
         String nombreActual = this.nombre;
@@ -268,8 +265,6 @@ public class Vino
      */
     public int compararPorPresentacion( Vino pVino )
     {
-   	 // TODO Parte2 PuntoB: Implemente el método según la documentación dada.
-
         assert pVino != null : "El vino a comparar no puede ser nulo.";
 
         String presentacionActual = this.presentacion;
@@ -294,9 +289,7 @@ public class Vino
      *         Retorna 1 si el vino pVino tiene un valor "MENOR" para el año de elaboración. <br>
      */
     public int compararPorAnhoElaboracion( Vino pVino )
-    {
-   	 // TODO Parte2 PuntoC: Implemente el método según la documentación dada.
-    	
+    {    	
         assert pVino != null : "El vino a comparar no puede ser nulo.";
 
         int anhoActual = this.anhoElaboracion;
@@ -320,8 +313,6 @@ public class Vino
      */
     public int compararPorContenidoAzucar( Vino pVino )
     {
-   	 // TODO Parte2 PuntoD: Implemente el método según la documentación dada.
-    	
     	assert pVino != null : "El vino a comparar no puede ser nulo.";
 
         double azucarActual = this.contenidoAzucar;
@@ -345,8 +336,6 @@ public class Vino
      */
     public int compararPorTipo( Vino pVino )
     {
-   	 // TODO Parte2 PuntoE: Implemente el método según la documentación dada.
-    	
     	assert pVino != null : "El vino a comparar no puede ser nulo.";
 
 	    String tipoActual = this.tipo;
@@ -371,9 +360,7 @@ public class Vino
      *         Retorna 1 si el vino pVino tiene un valor "MENOR" para el color. <br>
      */
     public int compararPorColor( Vino pVino )
-    {
-   	 // TODO Parte2 PuntoF: Implemente el método según la documentación dada.
-    	
+    {	
     	assert pVino != null : "El vino a comparar no puede ser nulo";
     	
     	String colorActual = this.color;
@@ -400,8 +387,6 @@ public class Vino
      */
     public int compararPorLugarOrigen( Vino pVino )
     {
-   	 // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
-    	
     	assert pVino != null : "El vino a compara no puede ser nulo";
     	
     	String lugarActual = this.lugarOrigen;
@@ -430,8 +415,6 @@ public class Vino
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
-
-    // TODO Parte1 PuntoB: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
     
     private void verificarInvariante()
     {
